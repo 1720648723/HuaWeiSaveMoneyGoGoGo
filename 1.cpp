@@ -22,6 +22,10 @@ struct Server
     }
 };
 
+//比较两个服务器的优先级，按cpu数、内存大小、每日价格、成本的顺序依次判断
+//若s1<s2返回1，否则返回0
+bool serverLess(Server s1, Server s2) {}
+
 int main()
 {
     Server myServer = Server("gta5", 1, 1, 1, 1);
