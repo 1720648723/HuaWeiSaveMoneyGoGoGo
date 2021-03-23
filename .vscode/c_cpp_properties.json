@@ -11,10 +11,10 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.17763.0",
-            "compilerPath": "F:/VS/安装/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
+            "compilerPath": "E:\\DATA-SAVE\\TGM-GCC\\bin\\gcc.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
