@@ -73,7 +73,7 @@ bool serverLess(Server s1, Server s2) {
 }
 
 typedef vector<Server> serverList;
-typedef vector<VM> requestList;
+typedef vector<VM> VMList;
 
 //从标准输入输出读到一个服务器信息，返回一个Server
 Server getServer() {
@@ -81,19 +81,19 @@ Server getServer() {
 }
 
 //获取所有服务器信息，存入list
-void getAllServer(serverlist &list) {}
+void getAllServer(VMList &list) {}
 
 //将ServerList按serverLess排序
-void sortServerList(serverList &list) {}
+void sortServerList(VMList &list) {}
 
 //将s插入到list（有序）中按serverLess顺序的位置
-void InsertToServerList(serverList &list, Server s) {}
+void InsertToServerList(VMList &list, Server s) {}
 
 //从标准输入输出读到一个虚拟机信息，返回一个VM
 VM getVM() {}
 
 //获取一天的需求
-void getRequestList(requestList &list) {}
+void getRequestList(VMList &list) {}
 
 int main()
 {
