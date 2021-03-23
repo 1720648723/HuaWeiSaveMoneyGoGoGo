@@ -51,6 +51,21 @@ struct VM
     }
 };
 
+struct Request
+{
+    string function;
+    string VMname;
+    int VMID;
+
+    Request(){};
+
+    Request(string _function,string _VMname,int _VMID){
+        function=_function;
+        VMname=_VMname;
+        VMID=_VMID;
+    }
+};
+
 //比较两个服务器的优先级，按cpu数、内存大小、每日价格、成本的顺序依次判断
 //若s1<s2返回1，否则返回0
 bool serverLess(Server s1, Server s2) {    
@@ -106,11 +121,12 @@ Server getServer() {
     char str[100];
     getchar();
     scanf("%s, ",str);
+    int i;
     for(i=0;str[i]!='\0';i++);
     str[--i]='\0';
     scanf("%d, %d, %d, %d",&OneServer.cpu,&OneServer.memory,&OneServer.cost,&OneServer.dayCost);
     string str2 = string(str);
-    Server ans = Server(str2,OneServer.cpu,OneServer.memory,OneServer.cost,OneServer.dayCost);
+    Server ans = Server(str2,OneServer.cpu,OneServer.memory,OneServer.cost,OneServer.dayCost,1);
     return ans;
 }
 
@@ -153,7 +169,33 @@ VM getVM() {
 }
 
 //获取一天的需求
-void getRequestList(VMList &list) {}
+void getRequestList(VMList &list) {
+    VMList myList;
+    int R;
+    scanf("%d",&R);
+    for(int j=0;j<R;j++){
+        char func[5];
+        getchar();
+        scanf("%s, ",func);
+        int i=0;
+        for(i=0;func[i]!='\0';i++);
+        func[--i]='\0';
+        char func2[4];
+        for(int m=0;m<3;m++){
+            func2[m]=func[m+1];
+        }
+        func2[3]='\0';
+        string function=string(func2);
+        char name[21];
+        scanf("%s, ",name);
+        for(i=0;name[i]!='\0';i++);
+        name[--i]='\0';
+        string VMname=string(name);
+        int VMID;
+        scanf("%d",&VMID);
+        Request temp=Request(function,VMname,VMID);
+    }
+}
 
 //将vm插入slist和vlist中
 //slist保证新插入的vm在满足硬件要求的前提下，尽量处于slist的靠前位置和A（peer[0]）节点
@@ -180,8 +222,8 @@ void solve()
 
 int main()
 {
-    Server myServer = Server("gta5", 1, 1, 1, 1);
     VM testVM = VM();
+    getRequestList() ;
     getVM();
     system("pause");
     return 0;
