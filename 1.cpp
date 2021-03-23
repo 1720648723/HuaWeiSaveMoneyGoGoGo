@@ -140,7 +140,9 @@ void getAllServer(serverList &list) {
 }
 
 //将ServerList按serverLess排序
-void sortServerList(VMList &list) {}
+void sortServerList(serverList &list) {
+    sort(list.begin(),list.end(),serverLess);
+}
 
 //将s插入到list（有序）中按serverLess顺序的位置
 //服务器index值为index
@@ -222,9 +224,12 @@ void solve()
 
 int main()
 {
-    VM testVM = VM();
-    getRequestList() ;
-    getVM();
+    //VM testVM = VM();
+    //getRequestList() ;
+    //getVM();
+    serverList test;
+    getAllServer(test);
+    sortServerList(test);
     system("pause");
     return 0;
 }
