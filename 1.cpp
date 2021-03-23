@@ -76,7 +76,9 @@ typedef vector<Server> serverList;
 typedef vector<VM> requestList;
 
 //从标准输入输出读到一个服务器信息，返回一个Server
-Server getServer() {}
+Server getServer() {
+    
+}
 
 //获取所有服务器信息，存入list
 void getAllServer(serverlist &list) {}
