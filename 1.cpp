@@ -102,11 +102,26 @@ typedef vector<VM> VMList;
 
 //从标准输入输出读到一个服务器信息，返回一个Server
 Server getServer() {
-    
+    Server OneServer;
+    char str[100];
+    getchar();
+    scanf("%s, ",str);
+    for(i=0;str[i]!='\0';i++);
+    str[--i]='\0';
+    scanf("%d, %d, %d, %d",&OneServer.cpu,&OneServer.memory,&OneServer.cost,&OneServer.dayCost);
+    string str2 = string(str);
+    Server ans = Server(str2,OneServer.cpu,OneServer.memory,OneServer.cost,OneServer.dayCost);
+    return ans;
 }
 
 //获取所有服务器信息，存入list
-void getAllServer(VMList &list) {}
+void getAllServer(serverList &list) {
+     int n;//n服务器类型数量
+     scanf("%d",&n);
+    for(int i = 0;i<n;i++){
+        list.push_back(getServer());
+    }
+}
 
 //将ServerList按serverLess排序
 void sortServerList(VMList &list) {}
