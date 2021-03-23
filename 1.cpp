@@ -28,13 +28,57 @@ struct VM
 
 //比较两个服务器的优先级，按cpu数、内存大小、每日价格、成本的顺序依次判断
 //若s1<s2返回1，否则返回0
-bool serverLess(Server s1, Server s2) {}
+bool serverLess(Server s1, Server s2) {    
+    if (s1.cpu < s2.cpu)
+    {
+        return true;
+    }
+    else if (s1.cpu == s2.cpu)
+    {
+        if (s1.memory < s2.memory)
+        {
+            return true;
+        }
+        else if (s1.memory == s2.memory)
+        {
+            if (s1.dayCost < s2.dayCost)
+            {
+                return true;
+            }
+            else if (s1.dayCost == s2.dayCost)
+            {
+                if (s1.cost < s2.cost)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
 
 typedef vector<Server> serverList;
 typedef vector<VM> requestList;
 
 //从标准输入输出读到一个服务器信息，返回一个Server
-Server getServer() {}
+Server getServer() {
+    
+}
 
 //获取所有服务器信息，存入list
 void getAllServer(serverlist &list) {}
